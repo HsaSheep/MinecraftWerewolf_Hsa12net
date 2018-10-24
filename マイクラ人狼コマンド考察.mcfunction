@@ -1,9 +1,24 @@
 --TODO--
 
+スケ剣販売にも耐久1つけたい
 狂人アイテムと不死身アイテムが同時に消費される問題(御子貝報告->確認済み) -> ぶっちゃけ狂人は不死身使っても意味ないから大丈夫かも？でも直せるなら直したい。
 占いアイテム持ってる人テレポートが、一番近い人がテレポートするのやばない問題。
 
 --コマンド--
+
+---サーバ上ファンクション(.mcfunction)---
+ファイル座標
+人狼MAP
+/home/hsasheep/Minecraft/Server/Spigot/Spigot_1.12.2/spigot/WentworthMansion/data/functions/werewolf/
+
+テストファイル場所
+Minecraft/Server/Spigot/Spigot_1.12.2/spigot/WentworthMansion/data/functions/werewolf/timer/test.mcfunction
+
+テスト実行コマンド(ゲーム内コマブロかコマンド欄に打って実行)
+/function werewolf:timer/test
+
+functionファイル書き換え後リロード
+/reload
 
 ---GM以外アドベンチャーモードに---
 /gamemode 2 @a[team=!GM]
@@ -26,6 +41,23 @@
 
 村人消去(3M,1人)
 /kill @e[type=villager,c=1,r=3]
+
+--残りの人陣営表示--
+/tellraw @a[m=sp] [{"text":"--------------------------------------\n","color":"white","bold":true},
+                   {"text":"村人   ： ","color":"dark_green"},
+                   {"selector":"@a[team=V]","color":"dark_green","bold":true},
+                   {"text":"\n"},
+                   {"text":"人狼   ： ","color":"red"},
+                   {"selector":"@a[team=W]","color":"red","bold":true},
+                   {"text":"\n"},
+                   {"text":"占い師 ： ","color":"blue"},
+                   {"selector":"@a[tag=seer]","color":"blue","bold":true},
+                   {"text":"\n"},
+                   {"text":"狂人   ： ","color":"gold"},
+                   {"selector":"@a[tag=madman]","color":"gold","bold":true},
+                   {"text":"\n--------------------------------------\n","color":"white","bold":true}]
+
+/tellraw @a[m=sp] [{"text":"--------------------------------------\n","color":"white","bold":true},{"text":"村人   ： ","color":"dark_green"},{"selector":"@a[team=V]","color":"dark_green","bold":true},{"text":"\n"},{"text":"人狼   ： ","color":"red"},{"selector":"@a[team=W]","color":"red","bold":true},{"text":"\n"},{"text":"占い師 ： ","color":"blue"},{"selector":"@a[tag=seer]","color":"blue","bold":true},{"text":"\n"},{"text":"狂人   ： ","color":"gold"},{"selector":"@a[tag=madman]","color":"gold","bold":true},{"text":"\n--------------------------------------\n","color":"white","bold":true}]
 
 
 ---攻撃アイテムショップ---
