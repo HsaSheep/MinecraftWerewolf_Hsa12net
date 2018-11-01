@@ -1,0 +1,7 @@
+/advancements
+/loot_tables
+/*.dat
+
+!/functions/*
+!/*.mcfunction
+!/README.md
